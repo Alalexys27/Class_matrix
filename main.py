@@ -64,6 +64,7 @@ if __name__ == "__main__":
     m2 = Matrix()
 
     try:
+
         inp_row_m1 = int(input("Input M1 rows: "))
         inp_col_m1 = int(input("Input M1 columns: "))
         inp_data_m1 = input("Input M1 data (через пробел): ")
@@ -72,34 +73,38 @@ if __name__ == "__main__":
         inp_col_m2 = int(input("Input M2 columns: "))
         inp_data_m2 = input("Input M2 data (через пробел): ")
 
+        data_m1=inp_data_m1.split(' ')
+        dt_m1=list()
+        dt_m1=[0]*len(data_m1)
+        i=0
+        for data in data_m1:
+            dt_m1[i] = int(data)
+            i+=1
+        data_m2=inp_data_m2.split(' ')
+        dt_m2=list()
+        dt_m2=[0]*len(data_m2)
+        i=0
+        for data in data_m2:
+            dt_m2[i] = int(data)
+            i+=1
+
+        m1.create(inp_row_m1, inp_col_m1, dt_m1)
+        m2.create(inp_row_m2, inp_col_m2, dt_m2)
+    
+        print("--------------------\n Первая матрица\n--------------------")
+        m1.print()
+        print("--------------------\n Вторая матрица\n--------------------")
+        m2.print()
+        
+        
+    
+        print("--------------------\n Произведение матриц\n--------------------")
         try:
-            data_m1=inp_data_m1.split(' ')
-            dt_m1=list()
-            dt_m1=[0]*len(data_m1)
-            i=0
-            for data in data_m1:
-                dt_m1[i] = int(data)
-                i+=1
-            data_m2=inp_data_m2.split(' ')
-            dt_m2=list()
-            dt_m2=[0]*len(data_m2)
-            i=0
-            for data in data_m2:
-                dt_m2[i] = int(data)
-                i+=1
-
-            m1.create(inp_row_m1, inp_col_m1, dt_m1)
-            m2.create(inp_row_m2, inp_col_m2, dt_m2)
-        
-            print("--------------------\n Первая матрица\n--------------------")
-            m1.print()
-            print("--------------------\n Вторая матрица\n--------------------")
-            m2.print()
-
             m3 = m1 * m2
-        
-            print("--------------------\n Произведение матриц\n--------------------")
             m3.print()
+        except:
+            print(">> Не удалось перемножить!")
+        else:    
             print("------------------------------\n Изменение значения по индексу\n------------------------------")
             try:
                 inp_x = int(input("Input x: "))
@@ -113,8 +118,7 @@ if __name__ == "__main__":
             print("--------------------\n Удаление матрицы\n--------------------")
             m3.clear()
             m3.print()
-        except:
-            print(">> Не удалось выполнить указанные действия!")
+
     except NameError:
         print(">> Введеные данные содержат недопустимые символы!")
     except ValueError:
