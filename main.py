@@ -66,28 +66,30 @@ if __name__ == "__main__":
     try:
         inp_row_m1 = int(input("Input M1 rows: "))
         inp_col_m1 = int(input("Input M1 columns: "))
-        inp_data_m1 = input("Input M1 data: ")
+        inp_data_m1 = input("Input M1 data (через пробел): ")
         print("----------------")
         inp_row_m2 = int(input("Input M2 rows: "))
         inp_col_m2 = int(input("Input M2 columns: "))
-        inp_data_m2 = input("Input M2 data: ")
+        inp_data_m2 = input("Input M2 data (через пробел): ")
 
         try:
-            data_m1=list()
-            data_m1=[0]*len(inp_data_m1)
-            data_m2=list()
-            data_m2=[0]*len(inp_data_m2)
+            data_m1=inp_data_m1.split(' ')
+            dt_m1=list()
+            dt_m1=[0]*len(data_m1)
             i=0
-            for data in (inp_data_m1):
-                data_m1[i]=int(data)
+            for data in data_m1:
+                dt_m1[i] = int(data)
                 i+=1
+            data_m2=inp_data_m2.split(' ')
+            dt_m2=list()
+            dt_m2=[0]*len(data_m2)
             i=0
-            for data in (inp_data_m2):
-                data_m2[i]=int(data)
+            for data in data_m2:
+                dt_m2[i] = int(data)
                 i+=1
 
-            m1.create(inp_row_m1, inp_col_m1, data_m1)
-            m2.create(inp_row_m2, inp_col_m2, data_m2)
+            m1.create(inp_row_m1, inp_col_m1, dt_m1)
+            m2.create(inp_row_m2, inp_col_m2, dt_m2)
         
             print("--------------------\n Первая матрица\n--------------------")
             m1.print()
