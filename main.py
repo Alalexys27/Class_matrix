@@ -68,10 +68,6 @@ if __name__ == "__main__":
         inp_row_m1 = int(input("Input M1 rows: "))
         inp_col_m1 = int(input("Input M1 columns: "))
         inp_data_m1 = input("Input M1 data (через пробел): ")
-        print("----------------")
-        inp_row_m2 = int(input("Input M2 rows: "))
-        inp_col_m2 = int(input("Input M2 columns: "))
-        inp_data_m2 = input("Input M2 data (через пробел): ")
 
         data_m1=inp_data_m1.split(' ')
         dt_m1=list()
@@ -80,6 +76,12 @@ if __name__ == "__main__":
         for data in data_m1:
             dt_m1[i] = int(data)
             i+=1
+    
+        print("----------------")
+        inp_row_m2 = int(input("Input M2 rows: "))
+        inp_col_m2 = int(input("Input M2 columns: "))
+        inp_data_m2 = input("Input M2 data (через пробел): ")
+
         data_m2=inp_data_m2.split(' ')
         dt_m2=list()
         dt_m2=[0]*len(data_m2)
